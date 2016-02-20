@@ -9,6 +9,7 @@ use it, for example, for nice presentation of house rent prices according to sea
  - Firs of all read [how to connect properties for objects(for now it's russian only)](https://github.com/DevGroup-ru/yii2-data-structure-tools/blob/master/docs/ru/how-to-use.md)
  - Preferred way is the installation via [DotPlant Extensions manager (required in this extension)](https://github.com/DevGroup-ru/yii2-extensions-manager)
  - Install using Extensions manager and do not forget to activate the extension. Otherwise you can't use it
+ - After activation run in console ```./yii dates-property/generate app\\models\\Model```, where ```app\\models\\Model``` your model class name 
  - Instead you cat install it using composer
  
 *Warning!* 

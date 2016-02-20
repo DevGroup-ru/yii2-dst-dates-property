@@ -44,9 +44,9 @@ JS;
 $this->registerJs($js, \yii\web\View::POS_HEAD);
 $format = DatesPropertyModule::module()->dateDisplayFormat;
 $propertyName = $modelApplicableName . '[' . $propertyKey . ']';
-$tLabel = Yii::t('dotplant.dates-property', 'Days') . '\\' . Yii::t('dotplant.dates-property', 'Dates');
+$tLabel = Yii::t('dotplant.dates-property', 'Days') . '&nbsp;\\&nbsp;' . Yii::t('dotplant.dates-property', 'Dates');
 $data = $model->{$property->key};
-$th = ['0' => "<thead>\n<tr>\n<th style='width: 10px'>{$tLabel}</th>\n"];
+$th = ['0' => "<thead>\n<tr>\n<th style='width: 100px'>{$tLabel}</th>\n"];
 $tr = [];
 $index = 1;
 if (false === empty($data)) {

@@ -226,7 +226,7 @@ window.datesProperty = window.datesProperty || {
     //deletes all grid data
     function resetGrid() {
         $('th:not(:eq(0))', $datesGridHead).remove();
-        $datesGridBody.html('');
+        $('tr', $datesGridBody).remove();
     }
 
     //adds a new row to dates range grid with given days range

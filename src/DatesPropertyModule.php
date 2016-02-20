@@ -12,7 +12,7 @@ class DatesPropertyModule extends Module
 {
     const DATES_TBL_SUFFIX = '_dates';
 
-    public $dateDisplayFormat = 'dd-MM-yyyy';
+    public $dateDisplayFormat = 'd-m-Y';
 
     /**
      * @return self Module instance in application

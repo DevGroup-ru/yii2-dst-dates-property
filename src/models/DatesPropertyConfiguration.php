@@ -55,11 +55,7 @@ class DatesPropertyConfiguration extends BaseConfigurationModel
      */
     public function webApplicationAttributes()
     {
-        return [
-            'controllerMap' => [
-                'dates-ranges' => DatesRangesController::class,
-            ]
-        ];
+        return [];
     }
 
     /**
@@ -88,9 +84,6 @@ class DatesPropertyConfiguration extends BaseConfigurationModel
     public function commonApplicationAttributes()
     {
         return [
-            'bootstrap' => [
-                'dates-property',
-            ],
             'components' => [
                 'i18n' => [
                     'translations' => [
@@ -106,9 +99,6 @@ class DatesPropertyConfiguration extends BaseConfigurationModel
                     'class' => DatesPropertyModule::class,
                     'dateDisplayFormat' => $this->dateDisplayFormat,
                 ],
-                'datecontrol' => [
-                    'class' => 'kartik\datecontrol\Module',
-                ]
             ],
         ];
     }

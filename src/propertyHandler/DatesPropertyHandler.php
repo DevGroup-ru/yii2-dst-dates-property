@@ -23,7 +23,7 @@ class DatesPropertyHandler extends AbstractPropertyHandler
     public function getValidationRules(Property $property)
     {
         return [
-            [$property->key, DatesPropertyValidator::class],
+            [$property->key, DatesPropertyValidator::class, 'skipOnEmpty' => true],
         ];
     }
 }

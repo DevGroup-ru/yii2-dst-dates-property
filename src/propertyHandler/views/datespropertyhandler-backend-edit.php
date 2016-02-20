@@ -42,7 +42,7 @@ $js = <<<JS
  window.datesProperty.daysAlreadyExists = '$daysAlreadyExists';
 JS;
 $this->registerJs($js, \yii\web\View::POS_HEAD);
-$format = DatesPropertyModule::module()->dateDisplayFormat;
+$format = 'php:' . DatesPropertyModule::module()->dateDisplayFormat;
 $propertyName = $modelApplicableName . '[' . $propertyKey . ']';
 $tLabel = Yii::t('dotplant.dates-property', 'Days') . '&nbsp;\\&nbsp;' . Yii::t('dotplant.dates-property', 'Dates');
 $data = $model->{$property->key};

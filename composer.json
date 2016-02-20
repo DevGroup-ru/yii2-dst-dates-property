@@ -1,0 +1,44 @@
+{
+  "name": "dotplant/dates-property",
+  "description": "Dates range plugin for devgroup/yii2-data-structure-tools",
+  "type": "dotplant-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pavel Naumov",
+      "email": "huggbies@email.su"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "kartik-v/yii2-widget-datepicker": "@dev",
+    "kartik-v/yii2-widget-touchspin": "*",
+    "devgroup/yii2-extensions-manager": "*",
+    "devgroup/yii2-data-structure-tools": "*"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "DotPlant\\DatesProperty\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "DotPlant\\DatesProperty\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "yii2-extension": {
+      "name": "DotPlant dates range",
+      "name_ru": "DotPlant диапазоны дат",
+      "iconUrl": "",
+      "description_ru": "Дополнительный вид свойства для devgroup/yii2-data-structure-tools."
+    },
+    "migrationPath": [
+      "src/migrations"
+    ],
+    "configurables": "src/configurables.php",
+    "translationCategory": "dotplant.dates-property"
+  }
+}

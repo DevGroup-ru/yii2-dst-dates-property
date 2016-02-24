@@ -2,7 +2,6 @@
 
 namespace DotPlant\DatesProperty\validators;
 
-use yii\helpers\VarDumper;
 use yii\validators\Validator;
 use Yii;
 
@@ -71,9 +70,11 @@ class DatesPropertyValidator extends Validator
      */
     protected static function isTs($ts)
     {
-        if (false !== $nts = date('U', $ts)) {
-            return $nts === $ts;
+        try {
+            $nts = date('U', $ts);
+        } catch (\Exception $e) {
+            $nts = false;
         }
-        return false;
+        return $nts === $ts;
     }
 }

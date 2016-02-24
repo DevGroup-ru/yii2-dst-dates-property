@@ -174,17 +174,19 @@ class DatesPropertyStorage extends AbstractPropertyStorage
     {
         $data = [];
         $values = $model->{$property->key};
-        foreach ($values as $i => $row) {
-            $data[] = [
-                $model->id,
-                $property->id,
-                (int)$row['date_from'],
-                (int)$row['date_to'],
-                (int)$row['days_from'],
-                (int)$row['days_to'],
-                (float)$row['price'],
-                $i,
-            ];
+        if (false === empty($values) && true === is_array($values)) {
+            foreach ($values as $i => $row) {
+                $data[] = [
+                    $model->id,
+                    $property->id,
+                    (int)$row['date_from'],
+                    (int)$row['date_to'],
+                    (int)$row['days_from'],
+                    (int)$row['days_to'],
+                    (float)$row['price'],
+                    $i,
+                ];
+            }
         }
         return $data;
     }

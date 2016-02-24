@@ -185,7 +185,7 @@ window.datesProperty = window.datesProperty || {
                     addError($datesModal, window.datesProperty.datesAlreadyExists);
                 } else {
                     var $appendData = $('<th>' + dateFromVal + '&nbsp;&rarr;&nbsp' + dateToVal
-                        + "&nbsp;<button type='button' class='btn btn-danger btn-xs pull-right' data-range-action='delete-row'><i class='fa fa-close'></i></button>"
+                        + "&nbsp;<button type='button' class='btn btn-danger btn-xs pull-right' data-range-action='delete-col'><i class='fa fa-close'></i></button>"
                         + '</th>').data(DATA_DATE_FROM_TS, dateFrom).data(DATA_DATE_TO_TS, dateTo);
                     $datesGridHead.append($appendData);
                     var $rows = $('tr', $datesGridBody);
@@ -227,6 +227,7 @@ window.datesProperty = window.datesProperty || {
     function resetGrid() {
         $('th:not(:eq(0))', $datesGridHead).remove();
         $('tr', $datesGridBody).remove();
+        appendFake($datesGridBody);
     }
 
     //adds a new row to dates range grid with given days range
@@ -289,6 +290,7 @@ window.datesProperty = window.datesProperty || {
         }
     }
 
+    //appends set of inputs to the given element
     function appendInputs($element, dateFromTs, dateToTs, daysFrom, daysTo) {
         var $subTpl = $('<td></td>');
         $subTpl.data(DATA_RANGE_INDEX, index);
@@ -304,5 +306,12 @@ window.datesProperty = window.datesProperty || {
             $inputs.price.clone().attr('name', PROPERTY_NAME + '[' + index + '][' + PRICE_NAME + ']')
         );
         $element.append($subTpl);
+    }
+
+    //appends fake input just to have ability to overwrite (remove) all property values
+    function appendFake($element) {
+        $element.append(
+            $inputs.datesFrom.clone().attr('name', PROPERTY_NAME)
+        );
     }
 })(jQuery);

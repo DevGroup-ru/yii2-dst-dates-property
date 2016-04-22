@@ -6,14 +6,11 @@ namespace DotPlant\DatesProperty\propertyStorage;
 use DevGroup\DataStructure\propertyStorage\AbstractPropertyStorage;
 use DevGroup\DataStructure\helpers\PropertiesHelper;
 use DotPlant\DatesProperty\DatesPropertyModule;
-use DotPlant\DatesProperty\models\DatesRange;
 use DevGroup\DataStructure\models\Property;
 use yii\db\ActiveRecord;
-use yii\db\Connection;
 use yii\db\Query;
 use Yii;
 use yii\helpers\ArrayHelper;
-use yii\helpers\VarDumper;
 
 class DatesPropertyStorage extends AbstractPropertyStorage
 {
@@ -183,7 +180,7 @@ class DatesPropertyStorage extends AbstractPropertyStorage
                     (int)$row['date_to'],
                     (int)$row['days_from'],
                     (int)$row['days_to'],
-                    (float)$row['price'],
+                    $row['price'],
                     $i,
                 ];
             }

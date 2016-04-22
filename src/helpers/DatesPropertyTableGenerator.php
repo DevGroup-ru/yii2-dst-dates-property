@@ -70,14 +70,14 @@ class DatesPropertyTableGenerator extends Migration
                 'date_to' => $this->integer()->notNull(),
                 'days_from' => $this->integer()->notNull()->defaultValue(1),
                 'days_to' => $this->integer()->notNull()->defaultValue(1),
-                'price' => $this->float()->notNull()->defaultValue(0),
+                'price' => $this->string(255),
                 'sort_order' => $this->integer()->notNull()->defaultValue(0),
             ],
             $tableOptions
         );
 
         $this->addForeignKey(
-            'fk' . crc32($className) . 'DTS',
+            'fk' . md5($className) . 'DTS',
             $tableName,
             ['model_id'],
             $className::tableName(),
@@ -97,11 +97,9 @@ class DatesPropertyTableGenerator extends Migration
     {
         $tableName = DatesPropertyModule::buildTableName($className);
         $this->setDb($db);
-        $this->dropForeignKey(
-            'fk' . crc32($className) . 'DTS',
-            $tableName
-        );
+        $this->db->createCommand('SET FOREIGN_KEY_CHECKS = 0')->execute();
         $this->dropTable($tableName);
+        $this->db->createCommand('SET FOREIGN_KEY_CHECKS = 1')->execute();
     }
 
     /**

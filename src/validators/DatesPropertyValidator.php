@@ -22,7 +22,6 @@ class DatesPropertyValidator extends Validator
                 || false === isset($row['date_to'])
                 || false === isset($row['days_from'])
                 || false === isset($row['days_to'])
-                || false === isset($row['price'])
             ) {
                 $model->addError($attribute,
                     Yii::t('dotplant.dates-property', 'There was an error while trying to add values! Try to flush cache first.')
@@ -52,12 +51,6 @@ class DatesPropertyValidator extends Validator
             }
             if ((int)$row['days_from'] > (int)$row['days_to']) {
                 $model->addError($attribute, Yii::t('dotplant.dates-property', 'Days to value must be equal or greater than Days from!'));
-            }
-            if (true === empty($row['price'])) {
-                $model->addError($attribute,
-                    Yii::t('dotplant.dates-property', 'Price') . ' '
-                    . Yii::t('dotplant.dates-property', 'attribute must be set!')
-                );
             }
         }
     }

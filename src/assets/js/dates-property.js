@@ -15,7 +15,7 @@ window.datesProperty = window.datesProperty || {
 };
 
 (function ($) {
-    const DATE_FROM_ID = 'date-from',
+    var DATE_FROM_ID = 'date-from',
         DATE_FROM_NAME = 'date_from',
         DATE_TO_ID = 'date-to',
         DATE_TO_NAME = 'date_to',

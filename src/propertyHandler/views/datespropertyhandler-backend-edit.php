@@ -1,6 +1,6 @@
 <?php
 /**
- * @var \yii\db\ActiveRecord $model
+ * @var \yii\db\ActiveRecord | \DevGroup\DataStructure\behaviors\HasProperties | \DevGroup\DataStructure\traits\PropertiesTrait $model
  * @var \DevGroup\DataStructure\models\Property $property
  * @var yii\web\View $this
  */
@@ -23,7 +23,8 @@ $wrongDaysCount = Yii::t('dotplant.dates-property', 'Days to value must be equal
 $emptyDatesMessage = Yii::t('dotplant.dates-property', 'Set at least one dates range first!');
 $datesAlreadyExists = Yii::t('dotplant.dates-property', 'Dates range with given dates already exists!');
 $daysAlreadyExists = Yii::t('dotplant.dates-property', 'Given days range already exists!');
-$modelApplicableName = substr(get_class($model), strrpos(get_class($model), '\\'));
+$modelApplicableName = \yii\helpers\StringHelper::basename(get_class($model));
+
 $propertyKey = $property->key;
 $js = <<<JS
  window.datesProperty = window.datesProperty || {};

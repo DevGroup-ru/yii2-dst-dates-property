@@ -10,18 +10,11 @@ use Yii;
 class DatesPropertyConfiguration extends BaseConfigurationModel
 {
     /**
-     * @param array $config
+     * @inheritdoc
      */
-    public function __construct($config = [])
+    public function getModuleClassName()
     {
-        $attributes = [
-            'dateDisplayFormat'
-        ];
-
-        parent::__construct($attributes, $config);
-        /** @var DatesPropertyModule $module */
-        $module = DatesPropertyModule::module();
-        $this->dateDisplayFormat = $module->dateDisplayFormat;
+        return DatesPropertyModule::className();
     }
 
     /**
